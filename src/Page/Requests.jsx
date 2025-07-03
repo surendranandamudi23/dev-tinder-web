@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { clearRequests, setRequests } from "../RequestsSlice";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API_BASE_URL } from "../constants";
 
 const Requests = () => {
   const dispatch = useDispatch();
@@ -12,12 +13,9 @@ const Requests = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:3000/user/requests/received",
-        {
-          withCredentials: true,
-        }
-      );
+      const res = await axios.get(`${API_BASE_URL}/user/requests/received`, {
+        withCredentials: true,
+      });
       dispatch(setRequests(res.data.data));
     } catch (err) {
       toast.info(err?.response?.data.message || "No connections found", {
@@ -39,7 +37,7 @@ const Requests = () => {
   const handleReviewRequest = async (requestId, status) => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/request/review/${status}/${requestId}`,
+        `${API_BASE_URL}/request/review/${status}/${requestId}`,
         {},
         { withCredentials: true }
       );

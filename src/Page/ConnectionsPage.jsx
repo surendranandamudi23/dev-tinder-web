@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { clearConnections, setConnections } from "../ConnectionSlice";
 import { toast, ToastContainer } from "react-toastify";
+import { API_BASE_URL } from "../constants";
 
 const ConnectionsPage = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const ConnectionsPage = () => {
 
   const fetchConnections = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/user/connections", {
+      const res = await axios.get(`${API_BASE_URL}/user/connections`, {
         withCredentials: true,
       });
       dispatch(setConnections(res.data.data));

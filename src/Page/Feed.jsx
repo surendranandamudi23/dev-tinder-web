@@ -5,24 +5,29 @@ import Swal from "sweetalert2";
 import { clearFeed, setFeed } from "../FeedSlice";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { API_BASE_URL } from "../constants";
 
 const Feed = () => {
   const dispatch = useDispatch();
   const feed = useSelector((state) => state.feed);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const isUserLoggedIn = useSelector((state) => state.user);
   const fetchFeed = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/feed", {
+      const res = await axios.get(`${API_BASE_URL}/feed`, {
         withCredentials: true,
       });
       dispatch(setFeed(res.data.data));
     } catch (err) {
-      Swal.fire(
-        "Error",
-        err.response?.data?.message || "Failed to load feed",
-        "error"
-      );
+      if (!isUserLoggedIn) {
+        navigate("/login");
+      } else {
+        Swal.fire(
+          "Error",
+          err.response?.data?.message || "Failed to load feed",
+          "error"
+        );
+      }
       dispatch(clearFeed());
     }
   };
@@ -30,7 +35,7 @@ const Feed = () => {
   const sendRequest = async (status, userId) => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/request/send/${status}/${userId}`,
+        `${API_BASE_URL}/request/send/${status}/${userId}`,
         {},
         { withCredentials: true }
       );

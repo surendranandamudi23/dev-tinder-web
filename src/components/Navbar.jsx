@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { removeUser } from "../UserSlice";
+import { API_BASE_URL } from "../constants";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/logout",
+        `${API_BASE_URL}/logout`,
         {},
         {
           withCredentials: true,

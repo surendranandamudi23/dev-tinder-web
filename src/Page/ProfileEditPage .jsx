@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { API_BASE_URL } from "../constants";
 
 const ProfileEditPage = () => {
   const user = useSelector((state) => state.user);
@@ -67,7 +68,7 @@ const ProfileEditPage = () => {
 
   const fetchUpdatedUser = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/profile/view", {
+      const res = await axios.get(`${API_BASE_URL}/profile/view`, {
         withCredentials: true,
       });
 
@@ -103,7 +104,7 @@ const ProfileEditPage = () => {
           })
       );
       const res = await axios.patch(
-        "http://localhost:3000/profile/edit",
+        `${API_BASE_URL}/profile/edit`,
         cleanedFormData,
         { withCredentials: true }
       );

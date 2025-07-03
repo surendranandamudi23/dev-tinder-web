@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { addUser, removeUser } from "../UserSlice";
+import { API_BASE_URL } from "../constants";
 
 const ChangePasswordPage = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const ChangePasswordPage = () => {
 
   const fetchUpdatedUser = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/profile/view", {
+      const res = await axios.get(`${API_BASE_URL}/profile/view`, {
         withCredentials: true,
       });
 
@@ -47,7 +48,7 @@ const ChangePasswordPage = () => {
 
     try {
       const res = await axios.patch(
-        "http://localhost:3000/profile/password",
+        `${API_BASE_URL}/profile/password`,
         formData,
         { withCredentials: true }
       );

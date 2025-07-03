@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { addUser } from "../UserSlice";
+import { API_BASE_URL } from "../constants";
 
 const LoginPage = ({ onSwitchToSignup, onLoginSuccess }) => {
   const [formData, setFormData] = useState({
@@ -28,13 +29,9 @@ const LoginPage = ({ onSwitchToSignup, onLoginSuccess }) => {
     setError("");
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        formData,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/login`, formData, {
+        withCredentials: true,
+      });
       if (response.status === 200) {
         const result = await response.data?.data;
         dispatch(addUser(result));
@@ -169,10 +166,7 @@ const SignupPage = ({ onSwitchToLogin, onSignupSuccess }) => {
     setError("");
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/signup",
-        formData
-      );
+      const response = await axios.post(`${API_BASE_URL}/signup`, formData);
       if (response?.status === 200) {
         onSignupSuccess();
       } else {

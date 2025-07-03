@@ -4,21 +4,17 @@ import { Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../UserSlice";
-import Swal from "sweetalert2";
+import { API_BASE_URL } from "../constants";
 
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const fetchUser = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/profile/view", {
+      const res = await axios.get(`${API_BASE_URL}/profile/view`, {
         withCredentials: true,
       });
       if (res.status !== 200) {
-        Swal.fire({
-          title: "Something went wrong!",
-          icon: "error",
-        });
         dispatch(removeUser());
         navigate("/login");
       } else {
