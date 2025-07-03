@@ -88,7 +88,7 @@ const Feed = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center min-h-[calc(100vh-64px)] bg-gray-100">
+      <div className="flex justify-center items-center min-h-[calc(100vh-64px)] bg-gray-100 dark:bg-[#1D232A]">
         <div className="bg-white rounded-2xl shadow-lg p-4 w-full max-w-sm">
           <div className="flex flex-col items-center">
             <img

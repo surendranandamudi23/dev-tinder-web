@@ -130,7 +130,7 @@ const ProfileEditPage = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gray-100 py-4 text-gray-800 dark:text-[#00008b] ">
+    <div className="min-h-[calc(100vh-64px)] bg-gray-100 dark:bg-[#1D232A] py-4 text-gray-800 dark:text-[#00008b] ">
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Edit Profile</h2>

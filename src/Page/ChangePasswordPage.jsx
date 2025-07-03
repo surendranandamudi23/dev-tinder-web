@@ -75,7 +75,7 @@ const ChangePasswordPage = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gray-100 flex items-center justify-center p-4 text-gray-800 dark:text-[#00008b]">
+    <div className="min-h-[calc(100vh-64px)] bg-gray-100 dark:bg-[#1D232A] flex items-center justify-center p-4 text-gray-800 dark:text-[#00008b]">
       <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Change Password</h2>
