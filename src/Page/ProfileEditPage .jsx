@@ -130,19 +130,19 @@ const ProfileEditPage = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gray-100 py-4">
+    <div className="min-h-[calc(100vh-64px)] bg-gray-100 py-4 text-gray-800 dark:text-[#00008b] ">
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Edit Profile</h2>
           <button
             onClick={() => navigate("/")}
-            className="text-lg text-blue-600 hover:underline"
+            className="text-lg  hover:underline"
           >
             ← Back
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div>
               <label className="block font-semibold mb-1">First Name</label>

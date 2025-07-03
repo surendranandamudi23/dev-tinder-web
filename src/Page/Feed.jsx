@@ -96,7 +96,7 @@ const Feed = () => {
               alt={`${user.firstName} ${user.lastName}`}
               className="w-32 h-32 rounded-full object-cover mb-3"
             />
-            <h2 className="text-xl font-semibold">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-[#00008b]">
               {user.firstName} {user.lastName}, {user.age}
             </h2>
           </div>

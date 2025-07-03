@@ -75,7 +75,7 @@ const Requests = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-semibold">
+                  <p className="font-semibold text-gray-800 dark:text-[#00008b]">
                     {req.fromUserId.firstName} {req.fromUserId.lastName}
                   </p>
                 </div>

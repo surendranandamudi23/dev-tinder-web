@@ -41,7 +41,7 @@ const ConnectionsPage = () => {
     <div className="p-4 max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Your Connections</h2>
       {connections.length === 0 ? (
-        <p className="text-gray-500">No connections found.</p>
+        <p>No connections found.</p>
       ) : (
         <div className="grid grid-cols-1 gap-4">
           {connections.map((user) => (
@@ -55,7 +55,7 @@ const ConnectionsPage = () => {
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div>
-                <p className="font-semibold">
+                <p className="font-semibold text-gray-800 dark:text-[#00008b]">
                   {user.firstName} {user.lastName}
                 </p>
               </div>
